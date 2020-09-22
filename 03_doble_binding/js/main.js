@@ -9,22 +9,35 @@ export function main (){
     const oResult = document.querySelector('#o_result')
 
     // Asignacion de manejadores de eventos
-    bMostrar.addEventListener('click', onClickMostrar)
+    // bMostrar.addEventListener('click', onClickMostrar)
+    iNombre.addEventListener('input', onImputNombre)
     bBorrar.addEventListener('click', onClickBorrar)
 
     // Funciones manejadoras de eventos
     
-    function onClickMostrar () {
-        nombre = iNombre.value
-        oResult.value = nombre
-    }
+    // function onClickMostrar () {
+    //     nombre = iNombre.value
+    //     oResult.value = nombre
+    // }
 
-    function onClickBorrar (){
+// JSDOC
+/**
+    * Funcion manejadora del evento click del boton bBorrar
+    * @author Erika Tavera
+    */
+    function onClickBorrar () {
         nombre = ''
         iNombre.value = nombre
         oResult.value = nombre
     }
-    
+
+    /**
+    * @param {*} ev
+    */
+    function onImputNombre () {
+        nombre = iNombre.value
+        oResult.value = nombre
+        console.log(iNombre.value)
+    }
 }
 
-main()
