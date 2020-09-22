@@ -1,39 +1,28 @@
-// Nodos del DOM
+export function main (){
 
-const bBorrar = document.querySelector('#b_borrar')
-const iNombre = document.querySelector()
+    let nombre
 
-// Asignacion de manejadores de eventos
-bMostar.addEventListener('click', onClickMostrar)
+    // Nodos del DOM
+    const bMostrar = document.querySelector('#b_mostrar')
+    const bBorrar =  document.querySelector('#b_borrar')
+    const iNombre = document.querySelector('#i_nombre')
+    const oResult = document.querySelector('#o_result')
 
+    // Asignacion de manejadores de eventos
+    bMostrar.addEventListener('click', onClickMostrar)
+    bBorrar.addEventListener('click', onClickBorrar)
 
+    // Funciones manejadoras de eventos
+    
+    function onClickMostrar() {
+        nombre = iNombre.value
+        oResult.value = nombre
+    }
 
-// Funciones manejadoras de eventos
-
-function onClickMostrar(){
-    nombre = iNombre.value
-    oResult.value = nombre
+    function onClickBorrar(){
+        nombre = ''
+        iNombre.value = nombre
+        oResult.value = nombre
+    }
+    
 }
-
-/**
- * Funcion manejadora del evento Borrar del boton b_borrar
- * @author Erika Maria Tavera Misas
- */
-function onClickBorrar(){
-    nombre = ""
-    iNombre.value = nombre
-    oResult.value = nombre
-}
-
-/**
- * @param 
- */
-function onInputNombre(){
-     nombre = iNombre.value
-     oResult.value = nombre
-}
-
-
-
-/** Comentario JSDOC */
-
