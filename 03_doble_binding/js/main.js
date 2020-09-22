@@ -14,15 +14,17 @@ export function main (){
 
     // Funciones manejadoras de eventos
     
-    function onClickMostrar() {
+    function onClickMostrar () {
         nombre = iNombre.value
         oResult.value = nombre
     }
 
-    function onClickBorrar(){
+    function onClickBorrar (){
         nombre = ''
         iNombre.value = nombre
         oResult.value = nombre
     }
     
 }
+
+main()
