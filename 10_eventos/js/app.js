@@ -1,41 +1,30 @@
-console.log(window) // BOM
-console.log(document) //DOM como HMTL
-console.dir(document) // DOM como NODOS
-
-// Acceso a los NODOS - Ejemplos
-const btn1 = document.getElementById('b_mostrar')
-console.dir(btn1)
-const btn2 = document.querySelector('#b_mostrar')
-console.dir(btn2)
-const controls = document.querySelectorAll('.form-control')
-console.dir(controls)
-
-// btn2.addEventListener('click', function () {
-//     console.log('Has hecho click')
-// })
-
-// btn2.addEventListener('click', ()=>{
-//     console.log('Has hecho click')
-// })
-
-btn2.addEventListener('click', onClickMostrar) // onClickMostrar es un callback por eso no tiene parentesis
-
-function onClickMostrar () {
-    const nombre = document.querySelector('#i_nombre').value
-    console.log('Has hecho click', nombre)
-    document.querySelector('#o_resultado').value = nombre
+function onClickBtn(){
+    const x = 32
+    console.log('Hiciste click', x)
 }
 
-// const onClickMostrar = function () {
-//     console.log('Has hecho click en mostrar')
-// }
+function onClickBtn2(){
+    console.log('Segundo manejadro del click', x)
+}
 
-// btn2.addEventListener('click', () => {
-//     onClickMostrar()
-// })  //de esta manera podriamos pasar parametros al callback onClicMostrar 
+document.querySelector('#btn2').title = ' Manejado desde el DOM'
+document.querySelector('#btn2').onclick = onClickBtn
+
+document.querySelector('#btn3').addEventListener('click', onClickBtn)
+document.querySelector('#btn4').addEventListener('click', () => {
+    document.querySelector('#btn3').addEventListener('click',onClickBtn)
+    document.querySelector('#btn4').dispatchEvent(new Event('Borrar'))
+})
 
 
+function onClickNumeros(ev){
+    if(ev.type)
+    console.dir(ev.target)
+    console.dir(ev.target.dataset.num)
+}
 
-setTimeout(()=>{
-    console.log('Paso un segundo')
-}, 1000)
+document.querySelectorAll('btn.numeros').forEach(
+    item => {
+        item.addEventListener('click', onClickNumeros)
+    }
+)
