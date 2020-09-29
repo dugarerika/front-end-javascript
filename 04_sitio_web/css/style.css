@@ -55,15 +55,19 @@ footer {
 
 main {
     flex: 30 0 auto;
-    margin: 2rem;
+    margin: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+main form {
+    display: flex;
+    flex-direction: column;
+}
 main div {
-    padding-top: 2rem;
+    padding-top: 1rem;
     padding-bottom: 1rem;
 }
 

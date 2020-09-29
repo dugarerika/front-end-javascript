@@ -1,16 +1,23 @@
-document.addEventListener('DOMcontentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#b_acceder')
     .addEventListener('click', () => {
-        const formlogin = document.querySelector('#f_login')
-        const inputs = [...formlogin.querySelectorAll('input')]
 
-        inputs.forEach((item) => {
-            if (!item) {
-                return
-            }
-        })
+        const form = document.querySelector('#f_login')
+        const inputs = [...form.querySelectorAll('input')] //convierto a un array con puntitos delante y poniendo dentro de unas llaves
+        console.dir(inputs)
+        
+        // inputs.forEach((item)=> {
+        //     if(!item){
+        //         return
+        //     }
+        // })
 
-        // BOM
-        Window.location = 'usuario.html'
+        for() {
+
+        }
+
+        // BOM 
+        window.location = 'usuario.html'
     })
 })
+
