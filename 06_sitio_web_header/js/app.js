@@ -1,4 +1,5 @@
 import {templFooter} from '../templates/footer.js'
+import { templHeader } from '../templates/header.js'
 
 function main () {
 
@@ -8,8 +9,14 @@ function main () {
         btn.addEventListener('click', onClick)
     }
 
-    document.querySelector('footer').innerHTML = templFooter
-    
+    const hoy = new Date().toLocaleDateString()
+    document.querySelector('footer').innerHTML = templFooter.render(hoy)
+
+    const posicion = window.location.pathname.lastIndexOf('/')+1
+    const page = window.location.pathname.slice(posicion)
+    console.log(window.location.pathname.slice(posicion))
+    document.querySelector('header').innerHTML = templHeader.render(page)
+
     function onClick () {
 
         const formLogin = document.querySelector('#f_login')
