@@ -1,3 +1,5 @@
+
+
 function main () {
     const btn = document.querySelector('#b_acceder')
 
@@ -5,6 +7,8 @@ function main () {
         btn.addEventListener('click', onClick)
     }
 
+    document.querySelector('footer').innerHTML = templFooter
+    
     function onClick () {
 
         const formLogin = document.querySelector('#f_login')
@@ -27,6 +31,5 @@ function main () {
         window.location = 'usuario.html'
     }
 }
-
 
 document.addEventListener('DOMContentLoaded', main)
