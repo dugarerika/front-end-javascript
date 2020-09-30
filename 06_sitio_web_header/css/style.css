@@ -1,0 +1,89 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+header, footer {
+    color: bisque;
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header {
+    flex: 1 0 5% ;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+header h1 {
+    line-height: 2rem;
+}
+header .menu {
+    display: flex;
+    width: 90%;
+    justify-content: flex-end;
+    
+}
+
+header .menu ul {
+    list-style: none;
+    display: flex;
+}
+
+header .menu a {
+    display: block;
+    padding: 1rem;
+    color: inherit;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+footer {
+    flex: 1 0 auto
+}
+
+footer p {
+    margin: 0.5rem 0;
+}
+
+main {
+    flex: 30 0 auto;
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+}
+main div {
+    margin: 0.5rem;
+    padding-bottom: 1rem;
+}
+
+main .jumbo {
+    background-color: gray ;
+    color: bisque;
+    padding: 3rem;
+    font-size: 1.3rem;
+    border-radius: 1rem;
+}
+
+.nodisplay {
+    display: none !important;
+}
