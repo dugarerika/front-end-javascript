@@ -1,6 +1,7 @@
-
+import {templFooter} from '../templates/footer.js'
 
 function main () {
+
     const btn = document.querySelector('#b_acceder')
 
     if(btn){
@@ -13,7 +14,7 @@ function main () {
 
         const formLogin = document.querySelector('#f_login')
         const inputs = [...formLogin.querySelectorAll('input')]
-        
+
         try {
 
             inputs.forEach((item)=> {
