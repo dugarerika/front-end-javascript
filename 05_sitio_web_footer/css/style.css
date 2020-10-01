@@ -87,3 +87,7 @@ main .jumbo {
 .nodisplay {
     display: none !important;
 }
+
+.mail {
+    text-decoration: underline;
+}

@@ -14,7 +14,6 @@ function main () {
 
     const posicion = window.location.pathname.lastIndexOf('/')+1
     const page = window.location.pathname.slice(posicion)
-    console.log(window.location.pathname.slice(posicion))
     document.querySelector('header').innerHTML = templHeader.render(page)
 
     function onClick () {
@@ -36,7 +35,8 @@ function main () {
             return
         }
 
-        window.location = 'usuario.html'
+    window.location = 'usuario.html'
+
     }
 }
 
