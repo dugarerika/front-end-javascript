@@ -5,6 +5,7 @@ function main () {
     const storeUsers = 'usuarios'
     const btnLog = document.querySelector('#b_acceder')
     const btnReg = document.querySelector('#b_registrar')
+    const btnGeo = document.querySelector('#geo button')
 
     if(btnLog){
         btnLog.addEventListener('click', onClickLog)
@@ -12,6 +13,10 @@ function main () {
 
     if(btnReg){
         btnReg.addEventListener('click', onClickReg)
+    }
+
+    if(btnGeo){
+        btnGeo.addEventListener('click', onClickGeo)
     }
 
     const hoy = new Date().toLocaleDateString()
@@ -41,6 +46,13 @@ function main () {
         else {
             console.log('Usario y password correctos')
             window.location = 'usuario.html'
+
+            // Ejemplo del uso de los metodos open y close y settimeot()
+            // del objeto windows
+            // const handler = window.open('usuario.html')
+            // setTimeout(()=>{
+            //     handler.close()
+            // },2000)
         }
     }
 
@@ -70,17 +82,64 @@ function main () {
         try {
             inputs.forEach((item)=> {
                 if(!item.value){
-                    throw new Error(`Campo ${item.id} Invalido`)
+                    const error = new Error(`Campo ${item.id} invalido`)
+                    error.code = item.id
+                    throw error
                 }
             })
             return true
         
         } catch (error) {
             console.log(error.message)
-            form.querySelector('p').innerHTML = error.message
+            console.log(error.code)
+            // alert(error.message)
+            // promt(error.message)
+            // confirm(error.message)
+
+            let errorMsg
+            // switch (error.message) {
+            //     case 'Campo i_nombre invalido':
+            //         errorMsg = 'El nombre es obligatorio'
+            //         break;
+            //     case 'Campo i_pwd invalido':
+            //         errorMsg = 'El password es obligatorio'
+            //         break;
+            //     default:
+            //         errorMsg = 'Se ha producido un error'
+            //         break;
+            // }
+
+            switch (error.code) {
+                case 'i_nombre':
+                    errorMsg = 'El nombre es obligatorio'
+                    break;
+                case 'i_pwd':
+                    errorMsg = 'El password es obligatorio'
+                    break;
+                default:
+                    errorMsg = 'Se ha producido un error'
+                    break;
+            }
+
+            form.querySelector('p').innerHTML = errorMsg
             return false
         }
     }
 }
+
+
+function onClickGeo () {
+    navigator.geolocation.getCurrentPosition(
+        (position)=>{
+            console.log(position)
+            const geoDiv = document.querySelector('#geo div')
+            geoDiv.innerHTML = `
+            <p>Latitud ${position.coords.latitude} </p>
+            <p>Longitud ${position.coords.longitude} </p>
+            `
+        }, 
+        (error)=>{
+            console.log(error)
+        })}
 
 document.addEventListener('DOMContentLoaded', main)
