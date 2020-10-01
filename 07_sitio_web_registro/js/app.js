@@ -30,7 +30,14 @@ function main () {
             return
         }
 
-        window.location = 'usuario.html'
+        const users = window.localStorage.getItem(storeUsers) ?
+        JSON.parse(window.localStorage.getItem(storeUsers)) : []
+        const inputs = [...formLogin.querySelectorAll('input')]
+
+        let index = users.find(item => item.name == inputs[0].value)
+        console.log(index)
+
+        // window.location = 'usuario.html'
     }
 
     function onClickReg () {
