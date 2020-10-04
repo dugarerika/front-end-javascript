@@ -137,13 +137,19 @@ function main () {
     function onClickGeo () {
         navigator.geolocation.getCurrentPosition(
             (position)=>{
+                let size = 1.4
                 console.log(position)
                 const geoDiv = document.querySelector('#geo div').cloneNode()//ejemplo como funciona la clonacion de un nodo
+                geoDiv.title += 'del Nodo clonado'
+                geoDiv.removeAttribute('hidden', true)
+                geoDiv.style.fontSize = size + "rem"
+                console.log(geoDiv)
+                console.dir(geoDiv)
                 geoDiv.innerHTML = `
                 <p>Latitud ${position.coords.latitude} </p>
                 <p>Longitud ${position.coords.longitude} </p>
                 `
-                document.querySelector('#geo div').appendChild.geoDiv //luego de clonarlo lo puedo anadir con el appendchild
+                document.querySelector('#geo').appendChild(geoDiv) //luego de clonarlo lo puedo anadir con el appendchild
                 initMap({lat: position.coords.latitude, lng:position.coords.longitude})
             }, 
             (error)=>{
