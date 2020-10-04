@@ -18,6 +18,7 @@ header, footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 header {
@@ -53,18 +54,25 @@ footer {
     flex: 1 0 auto
 }
 
+footer p {
+    margin: 0.5rem 0;
+}
+
 main {
     flex: 30 0 auto;
-    margin: 2rem;
+    margin: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+main form {
+    display: flex;
+    flex-direction: column;
+}
 main div {
-    padding-top: 2rem;
-    padding-bottom: 1rem;
+    margin: 0.5rem;
 }
 
 main .jumbo {
@@ -77,4 +85,14 @@ main .jumbo {
 
 .nodisplay {
     display: none !important;
+}
+
+.question {
+    font-size: 1.2rem;
+    color: brown;
+    cursor: pointer;
+}
+
+.response {
+    font-style: italic;
 }

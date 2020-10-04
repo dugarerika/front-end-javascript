@@ -7,6 +7,8 @@ function main () {
     const btnReg = document.querySelector('#b_registrar')
     const btnGeo = document.querySelector('#geo button')
 
+    const aQuestions = document.querySelectorAll('.question')
+
     if(btnLog){
         btnLog.addEventListener('click', onClickLog)
     }
@@ -17,6 +19,12 @@ function main () {
 
     if(btnGeo){
         btnGeo.addEventListener('click', onClickGeo)
+    }
+
+    if(aQuestions){
+        aQuestions.forEach(
+            item => item.addEventListener('click', onClickaQuestions)
+        )
     }
 
     const hoy = new Date().toLocaleDateString()
@@ -125,21 +133,33 @@ function main () {
             return false
         }
     }
+
+    function onClickGeo () {
+        navigator.geolocation.getCurrentPosition(
+            (position)=>{
+                console.log(position)
+                const geoDiv = document.querySelector('#geo div')
+                geoDiv.innerHTML = `
+                <p>Latitud ${position.coords.latitude} </p>
+                <p>Longitud ${position.coords.longitude} </p>
+                `
+            }, 
+            (error)=>{
+                console.log(error)
+            }
+        )
+    }
+
+    function onClickaQuestions (ev){
+        console.log(ev.target.id)
+        document.querySelectorAll('.faq .response').forEach(
+            item => item.classList.add('nodisplay')
+        )
+        ev.target.nextElementSibling.classList.remove('nodisplay')
+    }
 }
 
 
-function onClickGeo () {
-    navigator.geolocation.getCurrentPosition(
-        (position)=>{
-            console.log(position)
-            const geoDiv = document.querySelector('#geo div')
-            geoDiv.innerHTML = `
-            <p>Latitud ${position.coords.latitude} </p>
-            <p>Longitud ${position.coords.longitude} </p>
-            `
-        }, 
-        (error)=>{
-            console.log(error)
-        })}
+
 
 document.addEventListener('DOMContentLoaded', main)
