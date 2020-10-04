@@ -138,11 +138,12 @@ function main () {
         navigator.geolocation.getCurrentPosition(
             (position)=>{
                 console.log(position)
-                const geoDiv = document.querySelector('#geo div')
+                const geoDiv = document.querySelector('#geo div').cloneNode()//ejemplo como funciona la clonacion de un nodo
                 geoDiv.innerHTML = `
                 <p>Latitud ${position.coords.latitude} </p>
                 <p>Longitud ${position.coords.longitude} </p>
                 `
+                document.querySelector('#geo div').appendChild.geoDiv //luego de clonarlo lo puedo anadir con el appendchild
                 initMap({lat: position.coords.latitude, lng:position.coords.longitude})
             }, 
             (error)=>{
