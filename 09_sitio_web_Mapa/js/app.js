@@ -143,10 +143,21 @@ function main () {
                 <p>Latitud ${position.coords.latitude} </p>
                 <p>Longitud ${position.coords.longitude} </p>
                 `
+                initMap({lat: position.coords.latitude, lng:position.coords.longitude})
             }, 
             (error)=>{
                 console.log(error)
             }
+        )
+    }
+
+    function initMap(point = {lat: 52, long: 0}){
+        const map = new google.maps.Map(
+            document.querySelector('.map'),
+            {zoom: 8, center: point}
+        )
+        const marker = new google.maps.Marker(
+            {position: point, map: map}
         )
     }
 
