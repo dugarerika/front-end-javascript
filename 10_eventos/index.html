@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/app.js"></script>
+    <!-- <script>
+        function onClickBtn(){
+            const x = 32
+            console.log('hiciste click', x)
+        }
+    </script> -->
 </head>
 <body>
     <header>
@@ -13,9 +18,31 @@
     </header>
     <main>
         <p>Contenido</p>
+        <div>
+            <!-- Atributo HTML + código JS
+                <button onclick="const x = 32; console.log('hiciste click', x); " type="button">Haz click</button>
+            -->
+            <button onclick="onClickBtn()" type="button"> Haz click</button>
+            <a href="http://www.google.es">Google</a>
+        </div>
+        <div>
+            <button id="btn2" type="button">Haz click DOM</button>
+        </div>
+        <div>
+            <button id="btn3" type="button">Haz click - DOM level3</button>
+            <button id="btn4" type="button">Desactivar - DOM level3</button>
+        </div>
+        <div>
+            <p>El objeto evento</p>
+        </div>
+        <div>
+            <button id="btnEv1" data-num="1" class="btn_numeros" type="button">Boton 1</button>
+            <button id="btnEv2" data-num="2" class="btn_numeros" type="button">Boton 2</button>
+        </div>
     </main>
     <footer>
         <address>Erika Maria Tavera Misas</address>
     </footer>
+    <script src="./js/app.js"></script>
 </body>
 </html>
