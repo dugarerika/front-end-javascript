@@ -81,3 +81,9 @@ main .jumbo {
 form div{
     margin: 0.5rem 1rem;
 }
+
+.error{
+    color: crimson;
+    border: 1px solid;
+    padding: 0.1rem;
+}

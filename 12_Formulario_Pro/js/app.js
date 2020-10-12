@@ -37,7 +37,7 @@ function main(){
         data.ciudad = ciudades.value
         console.dir(region)
         console.log('Obteniendo Datos', data)
-        // fetch()
+        // fetch()   
         console.log('Enviando')
     }
 

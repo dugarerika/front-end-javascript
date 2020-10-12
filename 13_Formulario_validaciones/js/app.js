@@ -4,6 +4,7 @@ function main(){
     const form = document.querySelector('#formUsers')
     const aGenero = [...form.querySelectorAll('[name="genero"]')]
     const nombre = form.querySelector('input#nombre')
+    const correo = form.querySelector('input#correo')
     const mobile = form.querySelector('input#mobile')
     const condiciones = form.querySelector('input#condiciones')
     const region = form.querySelector('select#regiones')
@@ -11,6 +12,7 @@ function main(){
 
     // Definicion de manejadores de eventos
     form.addEventListener('submit', sendData)
+    aGenero.forEach(item => item.addEventListener('change', generoManager))
     nombre.addEventListener('focus', nombreManager)
     nombre.addEventListener('blur', nombreManager)
     region.addEventListener('change', selectManager)
@@ -29,6 +31,32 @@ function main(){
         const data = {}
         ev.preventDefault()
 
+        if (!form.checkValidity()){
+            console.log('Invalido')
+            console.dir(form)
+            if(!aGenero[0].checkValidity()){
+                // console.log('genero', aGenero[0].checkValidity)
+                // console.log(aGenero[0].validity)
+                // console.log(aGenero[0].validationMessage)
+                
+                const pError = aGenero[0].parentElement.querySelector('p')
+                pError.innerHTML= 'Selecciona el género al que perteneces'
+                pError.classList.remove('nodisplay')
+                // aGenero[0].parentElement.querySelector('p').innerHTML= aGenero[0].validationMessage
+            }
+
+            if (!correo.checkValidity()) {
+                console.log(correo.validity)
+                console.log(correo.validationMessage)
+            }
+
+            if (!mobile.checkValidity()) {
+                console.log(mobile.validity)
+                console.log(mobile.validationMessage)
+            }
+            return
+        }
+
         data.genero = aGenero.filter(item => item.checked)[0].value
         data.nombre = nombre.value
         data.mobile = mobile.value
@@ -39,6 +67,14 @@ function main(){
         console.log('Obteniendo Datos', data)
         // fetch()
         console.log('Enviando')
+    }
+
+    function generoManager(ev){
+        if (ev.type == 'change') {
+            if (ev.target.checkValidity) {
+                ev.target.parentElement.querySelector('p').classList.add('nodisplay')
+            }
+        }
     }
 
     function nombreManager(ev){

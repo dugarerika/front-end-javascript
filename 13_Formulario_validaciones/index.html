@@ -13,7 +13,7 @@
     </header>
     <main>
         <p>Formulario</p>
-        <form id="formUsers">
+        <form id="formUsers" novalidate>
             <div>
                 <input type="radio" id="hombre" name="genero" value="Hombre" required>
                 <label for="hombre">Hombre</label>
@@ -21,9 +21,14 @@
                 <label for="mujer">Mujer</label>
                 <input type="radio" id="otros" name="genero" value="Otros">
                 <label for="otros">Otros</label>
+                <p class="error  nodisplay"></p>
             </div>
             <div>
                 <input type="text" name="nombre" id="nombre" placeholder="nombre" 
+                required minlength="3" maxlength="8">
+            </div>
+            <div>
+                <input type="email" name="correo" id="correo" placeholder="correo" 
                 required minlength="3" maxlength="8">
             </div>
             <div>
