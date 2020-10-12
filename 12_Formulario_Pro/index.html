@@ -23,15 +23,27 @@
                 <label for="otros">Otros</label>
             </div>
             <div>
-                <input type="text" name="nombre" id="nombre" placeholder="nombre" required>
+                <input type="text" name="nombre" id="nombre" placeholder="nombre" 
+                required minlength="3" maxlength="8">
             </div>
             <div>
-                <input type="checkbox" name="condiciones" id="condiciones">
-                <label for="condiciones">Acepto las condiciones</label>
+                <input type="text" name="mobile" id="mobile" placeholder="mobile" 
+                required minlength="9" maxlength="12">
+            </div>
+            <div>
+                <input type="checkbox" name="condiciones" id="condiciones" 
+                required>
+                <label for="condiciones">Acepto las condiciones..</label>
             </div>
             <div>
                 <label for="regiones">Región</label>
-                <select name="regiones" id="regiones">
+                <select id="regiones">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="nodisplay"> 
+                <label for="ciudades">Ciudades</label>
+                <select id="ciudades">
                     <option value=""></option>
                 </select>
             </div>
