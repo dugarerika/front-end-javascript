@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/app.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Curso JS</h1>
+    </header>
+    <main>
+        <p>Formulario</p>
+        <form id="formUsers">
+            <div>
+                <input type="radio" id="hombre" name="genero" value="Hombre" required>
+                <label for="hombre">Hombre</label>
+                <input type="radio" id="mujer" name="genero" value="Mujer">
+                <label for="mujer">Mujer</label>
+                <input type="radio" id="otros" name="genero" value="Otros">
+                <label for="otros">Otros</label>
+            </div>
+            <div>
+                <input type="text" name="nombre" id="nombre" placeholder="nombre" 
+                required minlength="3" maxlength="8">
+            </div>
+            <div>
+                <input type="text" name="mobile" id="mobile" placeholder="mobile" 
+                required minlength="9" maxlength="12">
+            </div>
+            <div>
+                <input type="checkbox" name="condiciones" id="condiciones" 
+                required>
+                <label for="condiciones">Acepto las condiciones..</label>
+            </div>
+            <div>
+                <label for="regiones">Región</label>
+                <select id="regiones">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="nodisplay"> 
+                <label for="ciudades">Ciudades</label>
+                <select id="ciudades">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div>
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <address>Erika Maria Tavera Misas</address>
+    </footer>
+</body>
+</html>
