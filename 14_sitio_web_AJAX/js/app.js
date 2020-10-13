@@ -6,6 +6,7 @@ function main () {
     const btnLog = document.querySelector('#b_acceder')
     const btnReg = document.querySelector('#b_registrar')
     const btnGeo = document.querySelector('#geo button')
+    const btnLoad = document.querySelector('#b_load')
 
     const aQuestions = document.querySelectorAll('.question')
 
@@ -26,6 +27,11 @@ function main () {
             item => item.addEventListener('click', onClickaQuestions)
         )
     }
+
+    if(btnLoad){
+        btnLoad.addEventListener('click', onClickaLoad)
+    }
+
 
     const hoy = new Date().toLocaleDateString()
     document.querySelector('footer').innerHTML = templFooter.render(hoy)
@@ -175,6 +181,69 @@ function main () {
         )
         ev.target.nextElementSibling.classList.remove('nodisplay')
     }
+
+    function onClickaLoad(){
+        /* const http = new XMLHttpRequest()
+        console.log(http)
+        const method = 'GET'
+        const url = 'https://restcountries.eu/rest/v2/all=//'
+
+        http.onreadystatechange = ajaxCallback
+        http.addEventListener('readystatechange', ajaxCallback)
+        http.open(method, url)
+        http.send(null) */
+
+        // fetch
+        // axios
+
+        const url = 'https://restcountries.eu/rest/v2/all'
+        /* fetch(url).then(
+            resp => {
+                console.log(resp)
+                return resp.json()
+            }
+        ).then(
+            data => {
+                console.log(data)
+                procesarPaises(data)
+            }
+        )*/
+
+        /* fetch(url)
+        .then(resp => resp.json())
+        .then(data => procesarPaises(data))
+        .catch(error => console.log(error.message))*/
+        
+        /* fetch(url, {
+            method:'GET', 
+            heder: {api_key:'dfghjkl;'}
+        })*/
+
+        // fetch(url, {
+        //     method:'POST', 
+        //     heder: {},
+        //     body: {api_key:'dfghjkl'}
+        // })
+        
+        fetch(url)
+        .then(resp => { 
+            if (resp.status < 200 || resp.status >= 300){
+                console.log(resp.statusText)
+                throw new Error( 'HTTP Error' + resp.status)
+            }
+            return resp.json()
+        })
+        .then(data => procesarPaises(data))
+        // .catch(error => console.log(error.message))
+        .catch(error => alert(error.message))
+    }
+
+    function procesarPaises(data) {
+        console.log(data)
+        const paises = data.map(item => item.name)
+        console.log(paises)
+    }
+
 }
 
 

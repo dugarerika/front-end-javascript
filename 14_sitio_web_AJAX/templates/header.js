@@ -22,7 +22,14 @@ export const templHeader = {
 
             case 'usuario.html':
                 menu = `
-                    <li><a href="#">Perfil....</a></li>
+                    <li><a href="./juegos.html">Juegos</a></li>
+                    <li><a href="./index.html">Logout</a></li>
+                `
+                    break;
+
+            case 'juegos.html':
+                menu = `
+                    <li><a href="./usuario.html">usuario</a></li>
                     <li><a href="./index.html">Logout</a></li>
                 `
                     break;
